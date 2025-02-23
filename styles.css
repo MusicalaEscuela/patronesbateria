@@ -1,0 +1,204 @@
+/* styles.css */
+
+/* General */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+    text-align: center;
+    overflow-x: hidden; /* Evita el scroll horizontal */
+}
+
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    position: relative;
+    padding-bottom: 150px; /* Espacio extra para permitir scroll por debajo de la batería */
+}
+
+/* Logo */
+.logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    max-width: 120px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Encabezado */
+h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #333333;
+}
+
+p {
+    font-size: 16px;
+    color: #555555;
+}
+
+/* Explicación */
+.explanation {
+    text-align: left;
+    margin: 20px 0;
+}
+
+.explanation h2, .explanation h3 {
+    color: #333333;
+}
+
+.explanation ul {
+    text-align: left;
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+/* Filtros */
+.filters button {
+    padding: 8px 12px;
+    margin: 5px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.filters button:hover {
+    background-color: #0056b3;
+}
+
+/* Tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px auto;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+    color: #333333;
+}
+
+/* Control de Velocidad */
+.tempo-control input {
+    width: 80%;
+}
+
+/* Creador de Patrones */
+.pattern-creator button {
+    padding: 10px 15px;
+    margin: 5px;
+    background-color: #FF5722;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.pattern-creator button:hover {
+    background-color: #E64A19;
+}
+
+/* Batería Fija */
+.drum-kit {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border-top: 2px solid #ddd;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    z-index: 1000;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.drum {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    background-color: #ffcc00;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.1s, background-color 0.3s;
+}
+
+/* Colores por elemento */
+.bombo.active {
+    background-color: #ff595e;
+    transform: scale(1.2);
+}
+
+.redoblante.active {
+    background-color: #1982c4;
+    transform: scale(1.2);
+}
+
+.platillo.active {
+    background-color: #8ac926;
+    transform: scale(1.2);
+}
+
+/* Pie de página */
+footer {
+    margin-top: 30px;
+}
+
+.copyright {
+    font-size: 14px;
+    color: #888888;
+}
+
+/* Responsividad */
+@media (max-width: 600px) {
+    .drum {
+        width: 70px;
+        height: 70px;
+        font-size: 18px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+}
+
+/* Mensaje inicial y sin resultados */
+#pattern-table td {
+    text-align: center;
+    font-style: italic;
+    color: #777;
+}
+
+#current-pattern {
+    font-weight: bold;
+    font-size: 20px;
+    color: #333;
+    background-color: #f9f9f9;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 10px;
+}
