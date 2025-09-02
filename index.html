@@ -1,105 +1,141 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patrones de Batería 🥁</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Patrones de Batería 🥁</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
 
-    <!-- Logo -->
-    <img src="https://static.wixstatic.com/media/85afce_3adb3865c88a492b93a8bf2dc69049c3~mv2.png" alt="Logo Musicala" class="logo">
+  <!-- Logo -->
+  <img
+    src="https://static.wixstatic.com/media/85afce_3adb3865c88a492b93a8bf2dc69049c3~mv2.png"
+    alt="Logo Musicala"
+    class="logo"
+  />
 
-    <div class="container">
+  <div class="container">
 
-        <!-- Sección 1: Introducción y Explicación -->
-        <header>
-            <h1>Patrones de Batería 🥁</h1>
-            <p>Aprende a usar patrones básicos y crea los tuyos propios usando B (Bombo), R (Redoblante) y P (Platillo).</p>
-        </header>
+    <!-- Introducción -->
+    <header>
+      <h1>Patrones de Batería 🥁</h1>
+      <p>Aprende a usar patrones básicos y crea los tuyos propios usando B (Bombo), R (Redoblante) y P (Platillo).</p>
+    </header>
 
-        <section class="explanation">
-            <h2>📖 ¿Qué son los patrones de batería?</h2>
-            <p>Los patrones de batería son secuencias rítmicas que combinan los sonidos de bombo, redoblante y platillos. Sirven como base para acompañar melodías y crear ritmos en distintos géneros musicales.</p>
+    <section class="explanation">
+      <h2>📖 ¿Qué son los patrones de batería?</h2>
+      <p>Son secuencias rítmicas que combinan bombo, redoblante y platillos. Sirven como base para acompañar melodías y crear ritmos en distintos géneros.</p>
 
-            <h3>🎯 ¿Cómo usar esta herramienta?</h3>
-            <ul>
-                <li>Explora los <strong>patrones predeterminados</strong> y escúchalos haciendo clic en "Reproducir".</li>
-                <li>Usa el <strong>control de velocidad</strong> para ajustar el tempo.</li>
-                <li>Crea tus propios patrones en la sección <strong>"Creador de Patrones"</strong>.</li>
-                <li>Observa cómo se iluminan los elementos de la batería al reproducir cualquier patrón.</li>
-            </ul>
-        </section>
-
-        <!-- Sección 2: Patrones Predeterminados -->
-        <section class="patterns-section">
-            <h2>🎯 Patrones Predeterminados</h2>
-            <p>Selecciona un patrón y haz clic en "Reproducir" para escucharlo y ver cómo se ejecuta.</p>
-
-            <!-- Filtros -->
-            <div class="filters">
-                <h3>Filtrar Patrones:</h3>
-                <button onclick="filtrarPatrones('todos')">Todos</button>
-                <button onclick="filtrarPatrones('Simples')">Simples</button>
-                <button onclick="filtrarPatrones('Combinados')">Combinados</button>
-                <button onclick="filtrarPatrones('Complejos')">Complejos</button>
-                <button onclick="filtrarPorLongitud(2)">2 Golpes</button>
-                <button onclick="filtrarPorLongitud(3)">3 Golpes</button>
-                <button onclick="filtrarPorLongitud(4)">4 Golpes</button>
-            </div>
-
-            <!-- Tabla de Patrones -->
-            <table>
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Patrón</th>
-                        <th>Reproducir</th>
-                    </tr>
-                </thead>
-                <tbody id="pattern-table">
-                    <!-- Los patrones se cargarán aquí dinámicamente -->
-                </tbody>
-            </table>
-        </section>
-
-        <!-- Sección 3: Control de Velocidad -->
-        <section class="tempo-control">
-            <h2>🎚️ Control de Velocidad (BPM)</h2>
-            <input type="range" id="tempo-slider" min="60" max="200" value="120">
-            <p>Tempo Actual: <span id="tempo-display">120</span> BPM</p>
-        </section>
-
-        <!-- Sección 4: Creador de Patrones Personalizados -->
-        <section class="pattern-creator">
-            <h2>📝 Creador de Patrones</h2>
-            <p>Construye tu propio patrón seleccionando los sonidos y luego haz clic en "Reproducir".</p>
-            <div id="custom-pattern">
-                <button onclick="agregarAlPatron('B')">Bombo</button>
-                <button onclick="agregarAlPatron('R')">Redoblante</button>
-                <button onclick="agregarAlPatron('P')">Platillo</button>
-                <button onclick="limpiarPatron()">Limpiar</button>
-                <button onclick="reproducirPatronPersonalizado()">Reproducir</button>
-            </div>
-            <p>Patrón Actual: <span id="current-pattern">Ningún golpe seleccionado</span></p>
-        </section>
-
-        <!-- Pie de página -->
-        <footer>
-            <p class="copyright">© 2025 Musicala. Todos los derechos reservados.</p>
-        </footer>
-
-    </div>
-
-    <!-- Batería Fija y Animada -->
-    <section class="drum-kit">
-        <div class="drum bombo" id="bombo">B</div>
-        <div class="drum redoblante" id="redoblante">R</div>
-        <div class="drum platillo" id="platillo">P</div>
+      <h3>🎯 ¿Cómo usar esta herramienta?</h3>
+      <ul>
+        <li>Explora los <strong>patrones generados</strong> y escúchalos con “Reproducir”.</li>
+        <li>Usa el <strong>control de velocidad</strong> (BPM) para practicar con metrónomo.</li>
+        <li>Crea tus propios patrones en <strong>Creador de Patrones</strong>.</li>
+        <li>Los <strong>Patrones Avanzados</strong> se cargan de una hoja externa y están en su propia sección aparte.</li>
+      </ul>
     </section>
 
-    <script src="script.js"></script>
+    <!-- ======================= -->
+    <!-- Patrones GENERADOS -->
+    <!-- ======================= -->
+    <section class="patterns-section" id="section-generados">
+      <h2>🎯 Patrones Generados</h2>
+      <p>Selecciona un patrón y haz clic en “Reproducir”. Para detener, usa “Parar”.</p>
+
+      <!-- Filtros Generados -->
+      <div class="filters" id="filters-generados">
+        <h3>Filtrar:</h3>
+        <button onclick="filtrarPatronesGenerados('todos')">Todos</button>
+        <button onclick="filtrarPatronesGenerados('Simples')">Simples</button>
+        <button onclick="filtrarPatronesGenerados('Combinados')">Combinados</button>
+        <button onclick="filtrarPatronesGenerados('Complejos')">Complejos</button>
+        <button onclick="filtrarLongitudGenerados(2)">2 Golpes</button>
+        <button onclick="filtrarLongitudGenerados(3)">3 Golpes</button>
+        <button onclick="filtrarLongitudGenerados(4)">4 Golpes</button>
+        <button style="background:#ef4444" onclick="pararReproduccion()">Parar</button>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Compás</th>
+            <th>Secuencia</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="pattern-table-generados">
+          <tr><td colspan="3">Cargando patrones generados…</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ======================= -->
+    <!-- Patrones AVANZADOS (externo, separados) -->
+    <!-- ======================= -->
+    <section class="patterns-section" id="section-avanzados">
+      <h2>🚀 Patrones Avanzados (Hoja externa)</h2>
+      <p>Estos compases vienen de tu Google Sheet. Están <strong>separados</strong> de los generados.</p>
+
+      <!-- Filtros Avanzados (simples; opcional expandir) -->
+      <div class="filters" id="filters-avanzados">
+        <h3>Filtrar:</h3>
+        <button onclick="filtrarPatronesAvanzados('todos')">Todos</button>
+        <button onclick="filtrarLongitudAvanzados(2)">2 Golpes</button>
+        <button onclick="filtrarLongitudAvanzados(3)">3 Golpes</button>
+        <button onclick="filtrarLongitudAvanzados(4)">4 Golpes</button>
+        <button style="background:#ef4444" onclick="pararReproduccion()">Parar</button>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Compás</th>
+            <th>Secuencia</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="pattern-table-avanzados">
+          <tr><td colspan="3">Cargando patrones avanzados desde la hoja…</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Control de velocidad -->
+    <section class="tempo-control">
+      <h2>🎚️ Control de Velocidad (BPM)</h2>
+      <input type="range" id="tempo-slider" min="60" max="200" value="120">
+      <p>Tempo Actual: <span id="tempo-display">120</span> BPM</p>
+    </section>
+
+    <!-- Creador de patrones -->
+    <section class="pattern-creator">
+      <h2>📝 Creador de Patrones</h2>
+      <p>Arma tu propia secuencia y prácticala al tempo que prefieras.</p>
+      <div id="custom-pattern">
+        <button onclick="agregarAlPatron('B')">Bombo</button>
+        <button onclick="agregarAlPatron('R')">Redoblante</button>
+        <button onclick="agregarAlPatron('P')">Platillo</button>
+        <button onclick="limpiarPatron()">Limpiar</button>
+        <button onclick="reproducirPatronPersonalizado()">Reproducir</button>
+        <button style="background:#ef4444" onclick="pararReproduccion()">Parar</button>
+      </div>
+      <p>Patrón Actual: <span id="current-pattern">Ningún golpe seleccionado</span></p>
+    </section>
+
+    <footer>
+      <p class="copyright">© 2025 Musicala. Todos los derechos reservados.</p>
+    </footer>
+  </div>
+
+  <!-- Batería fija/animada -->
+  <section class="drum-kit">
+    <div class="drum bombo" id="bombo">B</div>
+    <div class="drum redoblante" id="redoblante">R</div>
+    <div class="drum platillo" id="platillo">P</div>
+  </section>
+
+  <script src="script.js"></script>
 </body>
 </html>
