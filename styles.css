@@ -1,204 +1,201 @@
-/* styles.css */
+/* ================================
+   Musicala – Patrones de Batería
+   styles.css
+   ================================ */
 
-/* General */
+:root {
+  --bg: #f5f7fb;
+  --card: #ffffff;
+  --text: #2e2e2e;
+  --muted: #6f6f6f;
+  --brand: #6b4cff;
+  --brand-600: #5a3ee6;
+  --brand-700: #4b35c7;
+  --danger: #ef4444;
+  --danger-dark: #b91c1c;
+  --radius: 14px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.06);
+  --shadow-md: 0 8px 20px rgba(0,0,0,.08), 0 2px 6px rgba(0,0,0,.06);
+}
+
+/* ----------------- Base ----------------- */
+* { box-sizing: border-box; }
 body {
-    font-family: 'Roboto', Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f2f2f2;
-    text-align: center;
-    overflow-x: hidden; /* Evita el scroll horizontal */
+  margin: 0;
+  font-family: 'Roboto', Arial, sans-serif;
+  color: var(--text);
+  background: linear-gradient(180deg,#f7f8ff 0%, var(--bg) 100%);
 }
+img { max-width: 100%; display: block; }
 
+/* ----------------- Layout ----------------- */
 .container {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 20px;
-    background-color: #ffffff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    position: relative;
-    padding-bottom: 150px; /* Espacio extra para permitir scroll por debajo de la batería */
+  max-width: 1000px;
+  margin: 90px auto 180px;
+  padding: 20px;
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-md);
 }
-
-/* Logo */
 .logo {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    max-width: 120px;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  width: 90px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: var(--shadow-sm);
+  background: #fff;
+  padding: 4px;
+  z-index: 20;
 }
 
-/* Encabezado */
-h1 {
-    font-size: 36px;
-    font-weight: bold;
-    color: #333333;
+/* ----------------- Tipografía ----------------- */
+h1 { font-size: 36px; font-weight: 800; margin: 0 0 8px; }
+h2 { font-size: 26px; margin: 20px 0 10px; }
+h3 { font-size: 18px; margin: 12px 0 6px; }
+p  { color: var(--muted); line-height: 1.6; }
+
+/* ----------------- Secciones ----------------- */
+.patterns-section { margin-top: 30px; }
+.explanation ul { padding-left: 18px; }
+.explanation li { margin: 6px 0; }
+
+/* ----------------- Botones ----------------- */
+button {
+  border: none;
+  border-radius: 10px;
+  padding: 8px 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .15s ease;
+  color: #fff;
+  background: var(--brand);
+}
+button:hover { background: var(--brand-600); transform: translateY(-1px); }
+button:active { background: var(--brand-700); transform: translateY(0); }
+button:focus-visible {
+  outline: 3px solid rgba(107,76,255,.4);
+  outline-offset: 2px;
 }
 
-p {
-    font-size: 16px;
-    color: #555555;
+/* Botón rojo para Parar */
+button[onclick*="pararReproduccion"],
+button.stop {
+  background: var(--danger);
+}
+button[onclick*="pararReproduccion"]:hover,
+button.stop:hover {
+  background: var(--danger-dark);
 }
 
-/* Explicación */
-.explanation {
-    text-align: left;
-    margin: 20px 0;
+/* ----------------- Filtros ----------------- */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0;
+  align-items: center;
 }
+.filters h3 { margin: 0 6px 0 0; }
 
-.explanation h2, .explanation h3 {
-    color: #333333;
-}
-
-.explanation ul {
-    text-align: left;
-    list-style-type: disc;
-    padding-left: 20px;
-}
-
-/* Filtros */
-.filters button {
-    padding: 8px 12px;
-    margin: 5px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-.filters button:hover {
-    background-color: #0056b3;
-}
-
-/* Tabla */
+/* ----------------- Tablas ----------------- */
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px auto;
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+thead th {
+  background: #f2f4ff;
+  color: #333;
+  text-align: left;
+  padding: 10px;
+}
+tbody td {
+  border-top: 1px solid #e9e9f4;
+  padding: 10px;
+}
+tbody tr:hover { background: #fafbff; }
+#pattern-table-generados td,
+#pattern-table-avanzados td {
+  text-align: center;
 }
 
-th, td {
-    padding: 10px;
-    text-align: center;
-    border-bottom: 1px solid #ddd;
+/* ----------------- Tempo ----------------- */
+.tempo-control input[type="range"] {
+  width: 80%;
+  accent-color: var(--brand);
+}
+#tempo-display {
+  font-weight: bold;
+  color: var(--brand-700);
 }
 
-th {
-    background-color: #f2f2f2;
-    color: #333333;
+/* ----------------- Creador ----------------- */
+.pattern-creator #custom-pattern button {
+  background: #ff5722;
 }
-
-/* Control de Velocidad */
-.tempo-control input {
-    width: 80%;
+.pattern-creator #custom-pattern button:hover {
+  background: #e64a19;
 }
-
-/* Creador de Patrones */
-.pattern-creator button {
-    padding: 10px 15px;
-    margin: 5px;
-    background-color: #FF5722;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-.pattern-creator button:hover {
-    background-color: #E64A19;
-}
-
-/* Batería Fija */
-.drum-kit {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #fff;
-    border-top: 2px solid #ddd;
-    display: flex;
-    justify-content: center;
-    padding: 10px 0;
-    z-index: 1000;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.drum {
-    width: 100px;
-    height: 100px;
-    margin: 10px;
-    background-color: #ffcc00;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    transition: transform 0.1s, background-color 0.3s;
-}
-
-/* Colores por elemento */
-.bombo.active {
-    background-color: #ff595e;
-    transform: scale(1.2);
-}
-
-.redoblante.active {
-    background-color: #1982c4;
-    transform: scale(1.2);
-}
-
-.platillo.active {
-    background-color: #8ac926;
-    transform: scale(1.2);
-}
-
-/* Pie de página */
-footer {
-    margin-top: 30px;
-}
-
-.copyright {
-    font-size: 14px;
-    color: #888888;
-}
-
-/* Responsividad */
-@media (max-width: 600px) {
-    .drum {
-        width: 70px;
-        height: 70px;
-        font-size: 18px;
-    }
-
-    h1 {
-        font-size: 28px;
-    }
-}
-
-/* Mensaje inicial y sin resultados */
-#pattern-table td {
-    text-align: center;
-    font-style: italic;
-    color: #777;
-}
-
 #current-pattern {
-    font-weight: bold;
-    font-size: 20px;
-    color: #333;
-    background-color: #f9f9f9;
-    padding: 5px 10px;
-    border-radius: 5px;
-    display: inline-block;
-    margin-top: 10px;
+  display: inline-block;
+  margin-top: 10px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: #f7f8ff;
+  font-weight: bold;
+}
+
+/* ----------------- Batería inferior ----------------- */
+.drum-kit {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  border-top: 2px solid #ddd;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 12px;
+  z-index: 50;
+  box-shadow: 0 -4px 12px rgba(0,0,0,.08);
+}
+.drum {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: #ffd155;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform .1s ease, background .2s ease;
+}
+.drum:hover { transform: scale(1.05); }
+
+/* Animaciones de golpe */
+@keyframes pop {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+.bombo.active { background: #ff595e; animation: pop .25s; }
+.redoblante.active { background: #1982c4; animation: pop .25s; }
+.platillo.active { background: #8ac926; animation: pop .25s; }
+
+/* ----------------- Footer ----------------- */
+footer { margin-top: 30px; text-align: center; }
+footer p { font-size: 14px; color: #999; }
+
+/* ----------------- Responsividad ----------------- */
+@media (max-width: 600px) {
+  .drum { width: 70px; height: 70px; font-size: 18px; }
+  h1 { font-size: 28px; }
 }
