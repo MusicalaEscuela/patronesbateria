@@ -1,0 +1,24 @@
+{
+  "sources": [
+    {
+      "id": "sheet_compases",
+      "type": "google_sheets_tsv",
+      "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTX4ca9XnbT8xNTvV0B2cES5YVVMTot8ms5IztDAriYnjMycEUsdeJFvQSMz9ZvKGH-9Hc47QUQs9pW/pub?gid=0&single=true&output=tsv",
+      "columns": {
+        "compas": "Compás",
+        "secuencia": "Secuencia"
+      },
+      "tokens_permitidos": ["B", "R", "P"],
+      "normalize": {
+        "uppercase": true,
+        "collapse_spaces": true,
+        "trim": true
+      },
+      "dedupe_by": ["secuencia"],
+      "on_missing": {
+        "skip_rows": true,
+        "log_level": "warn"
+      }
+    }
+  ]
+}
